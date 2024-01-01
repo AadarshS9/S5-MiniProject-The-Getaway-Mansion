@@ -47,7 +47,7 @@ We welcome contributions! If you have ideas for enhancements or bug fixes, feel 
 
 # <p align="center"> Team Members: </p>
 
-- [Aadarsh Suresh](github.com/AadarshS9)
+- [Aadarsh Suresh](https://github.com/AadarshS9)
 - David Vinoj Mathew
 - Megha Rajesh
 - Nedha Fathima
