@@ -6,7 +6,7 @@ This repository houses the code for "The Getaway Mansion," a website designed to
 
 This represents our team's mini-project for the fifth semester of the Computer Science and Business Systems (CSBS) program.
 
-# Key Features:
+# <p align="center"> Key Features: </p>
 
 - Seamless Hotel Reservations:
     - Browse a diverse selection of luxurious suites and villas.
@@ -22,7 +22,7 @@ This represents our team's mini-project for the fifth semester of the Computer S
   - Navigate the website with ease, thanks to its intuitive design and clear navigation.
   - Enjoy a visually appealing and immersive experience that complements the essence of The Getaway Mansion.
 
-# Technologies Used:
+# <p align="center"> Technologies Used: </p>
 
 - Front-end Development: HTML, CSS, Javascript, and Bootstrap
   
@@ -30,14 +30,14 @@ This represents our team's mini-project for the fifth semester of the Computer S
 
 - Framework: Flask
 
-# Getting Started:
+# <p align="center"> Getting Started: </p>
 
 - Clone this repository to your local machine.
 - Install the required dependencies listed in the requirements.txt file.
 - Create a database and configure the connection settings in the config.py file.
 - Run the application using the appropriate commands for your chosen framework.
 
-# Contributing:
+# <p align="center"> Contributing:
 
 We welcome contributions! If you have ideas for enhancements or bug fixes, feel free to submit pull requests.
 - Fork this repository.
@@ -45,26 +45,20 @@ We welcome contributions! If you have ideas for enhancements or bug fixes, feel 
 - Make your changes and commit them.
 - Create a pull request, describing your changes and why they should be included.
 
-# License:
-
-This project is licensed under the MIT License: https://opensource.org/licenses/MIT.
-
-# Team Members:
+# <p align="center"> Team Members: </p>
 
 - [Aadarsh Suresh](github.com/AadarshS9)
 - David Vinoj Mathew
 - Megha Rajesh
 - Nedha Fathima
 
-  # Project Guide:
-  Dr. Neeba E A <br>
-  Associate Professor | Head of IT Department <br>
-  Rajagiri School of Engineering & Technology <br>
-  Kochi
+# <p align="center"> Project Guide: </p>
+Dr. Neeba E A <br>
+Associate Professor | Head of IT Department <br>
+Rajagiri School of Engineering & Technology <br>
+Kochi
   
-  
-
-# Contact:
+# <p align="center"> Contact: </p>
 
 For any inquiries or feedback, please reach out to u2109001@rajagiri.edu.in
 
