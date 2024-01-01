@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getaway Mansion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+  <!--NAVBAR-->
+  <nav>
+  <div class="logo">
+  <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" width="70px" height="auto"></a>
+  </div>
+  <ul>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('explore') }}">Explore</a></li>
+    <li><a href="{{ url_for('rooms') }}">Rooms</a></li>
+    <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+    <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('signup') }}" class="bn1">Sign Up</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('login') }}" class="bn1">Login</a></li>
+  </ul>
+  <div class="menu">
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+  </div>
+  </nav>
+&nbsp;
+
+  <!-- ROOM IMAGES -->
+  <div class="container">
+  <ul class="image-gallery">
+    <li><img src="{{ url_for('static', filename='images/room11.png') }}" alt="room 1 pic"/></li>
+    <li><img src="{{ url_for('static', filename='images/room12.png') }}" alt="room 1 pic" /></li>
+    <li><img src="{{ url_for('static', filename='images/room13.png') }}" alt="room 1 pic"/></li>
+    <li><img src="{{ url_for('static', filename='images/room14.png') }}" alt="room 1 pic"/></li>
+    <li><img src="{{ url_for('static', filename='images/room15.png') }}" alt="room 1 pic"/></li>
+  </ul>
+  </div>
+
+  <div class="b-example-divider"></div>
+  <!----ROOM DETAILS-->
+  <div class="container px-4 py-5">
+  <h2 class="pb-2 border-bottom">Penthouse</h2>
+  <p class="subtext">Make once in a lifetime memories</p><br>
+  <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+  <div class="col d-flex flex-column align-items-start gap-2">
+  <h2 class="fw-bold text-body-emphasis">₹190</h2>
+  <p class="text-body-secondary" style="text-align: justify;">Magnificent pools welcome you to the Penthouse as you arrive into the palatial living area.
+    Soak up the sun in one of the suite’s five balconies or in the outdoor private jacuzzi, with near panoramic views of the gleaming Arabian Sea, iconic Palm island 
+    and shimmering Dubai skyline. The master bedroom is completed by his and hers bathrooms and a decadent oversized tub overlooking the ocean.  The second bedroom features
+    its own spacious en suite bathroom, making it ideal for large families, separate dining area and 24-hour butler service.</p>
+  <br><p class="text-body-secondary" style="text-align: justify;">Occupancy : <br> 4 adults + 3 children below 14 years of age</p>
+  </div>
+  <div class="col">
+  <div class="row row-cols-1 row-cols-sm-2 g-4">
+  <div class="col d-flex flex-column align-items-center justify-content-center gap-4" style="background-color: #FFF7F5;">
+  <div class="icon-box">
+  <div class="icon"><img src="{{ url_for('static', filename='images/roomdetail1.svg') }}" class="features-img"></div>
+  </div>
+  <h4 class="fw-semibold mb-0 text-body-emphasis">2 King Beds</h4>
+  </div>
+  <div class="col d-flex flex-column align-items-center justify-content-center gap-4" style="background-color: #FFF7F5;">
+  <div class="icon-box">
+  <div class="icon"><img src="{{ url_for('static', filename='images/roomdetail2.svg') }}" class="features-img"></div>
+  </div>
+  <h4 class="fw-semibold mb-0 text-body-emphasis">2 Bathrooms</h4>
+  </div>
+  <div class="col d-flex flex-column align-items-center justify-content-center gap-4" style="background-color: #FFF7F5;">
+  <div class="icon-box">
+  <div class="icon"><img src="{{ url_for('static', filename='images/roomdetail3.svg') }}" class="features-img"></div>
+  </div>
+  <h4 class="fw-semibold mb-0 text-body-emphasis">Minibar</h4>
+  </div>
+  <div class="col d-flex flex-column align-items-center justify-content-center gap-4" style="background-color: #FFF7F5;">
+  <div class="icon-box">
+  <div class="icon"><img src="{{ url_for('static', filename='images/roomdetail4.svg') }}" class="features-img"></div>
+  </div>
+  <h4 class="fw-semibold mb-0 text-body-emphasis">24 / 7 Room Service</h4>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="b-example-divider">&nbsp;</div>
+  <!---ROOM AMENITIES-->
+  <div class="container px-4 py-5" id="icon-grid">
+  <h2 class="pb-2 border-bottom" style="text-align: left;">Offered Amenities</h2>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+  <div class="col d-flex align-items-start">
+  <div class="icon"><img src="{{ url_for('static', filename='images/amenities1.svg') }}" class="bi text-body-secondary flex-shrink-0 me-3" style="width: 1.75em;height: 1.75em"></div>
+  <div>
+  <h3 class="fw-normal mb-0 fs-4 text-body-emphasis">Kitchen</h3>
+  </div>
+  </div>
+  <div class="col d-flex align-items-start">
+  <div class="icon"><img src="{{ url_for('static', filename='images/amenities2.svg') }}" class="bi text-body-secondary flex-shrink-0 me-3" style="width: 1.75em;height: 1.75em"></div>
+  <div>
+  <h3 class="fw-normal mb-0 fs-4 text-body-emphasis">Air Conditioner</h3>
+  </div>
+  </div>
+  <div class="col d-flex align-items-start">
+  <div class="icon"><img src="{{ url_for('static', filename='images/amenities3.svg') }}" class="bi text-body-secondary flex-shrink-0 me-3" style="width: 1.75em;height: 1.75em"></div>
+  <div>
+  <h3 class="fw-normal mb-0 fs-4 text-body-emphasis">Washer</h3>
+  </div>
+  </div>
+  <div class="col d-flex align-items-start">
+  <div class="icon"><img src="{{ url_for('static', filename='images/amenities4.svg') }}" class="bi text-body-secondary flex-shrink-0 me-3" style="width: 1.75em;height: 1.75em"></div>
+  <div>
+  <h3 class="fw-normal mb-0 fs-4 text-body-emphasis">Television with Netflix</h3>
+  </div>
+  </div>
+  <div class="col d-flex align-items-start">
+  <div class="icon"><img src="{{ url_for('static', filename='images/amenities5.svg') }}" class="bi text-body-secondary flex-shrink-0 me-3" style="width: 1.75em;height: 1.75em"></div>
+  <div>
+  <h3 class="fw-normal mb-0 fs-4 text-body-emphasis">Free Wireless Internet</h3>
+  </div>
+  </div>
+  <div class="col d-flex align-items-start">
+  <div class="icon"><img src="{{ url_for('static', filename='images/amenities6.svg') }}" class="bi text-body-secondary flex-shrink-0 me-3" style="width: 1.75em;height: 1.75em"></div>
+  <div>
+  <h3 class="fw-normal mb-0 fs-4 text-body-emphasis">Balcony</h3>
+  </div>
+  </div>
+  <div class="col d-flex align-items-start">
+  <div class="icon"><img src="{{ url_for('static', filename='images/amenities7.svg') }}" class="bi text-body-secondary flex-shrink-0 me-3" style="width: 1.75em;height: 1.75em"></div>
+  <div>
+  <h3 class="fw-normal mb-0 fs-4 text-body-emphasis">Daily sanitation and cleaning</h3>
+  </div>
+  </div>
+  <div class="col d-flex align-items-start">
+  <div class="icon"><img src="{{ url_for('static', filename='images/amenities8.svg') }}" class="bi text-body-secondary flex-shrink-0 me-3" style="width: 1.75em;height: 1.75em"></div>
+  <div>
+  <h3 class="fw-normal mb-0 fs-4 text-body-emphasis">Fire extinguisher and smoke detector</h3>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="b-example-divider">&nbsp;</div>
+  <!--FOOTER SECTION-->
+  <div class="b-example-divider">&nbsp;</div>
+  <div class="container-fluid">
+  <footer class="py-5" style(="background-color: #FFF7F5;")>
+  <div class="row">
+    <div class="col-6 col-md-3 mb-3">
+    <h5 style="text-align: center;">The Getaway Mansion</h5>
+    <p style="text-align: center;">Experience the epitome of luxury at Getaway Mansion, where every moment is a masterpiece, and every stay is a treasure</p>
+    </div>
+
+    <div class="col-6 col-md-2 mb-0 text-end">
+    <h5 style="text-align: end;">Quick Links</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('index') }}" class="nav-link p-0 text-body-secondary">Home</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('explore') }}" class="nav-link p-0 text-body-secondary">Explore</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('rooms') }}" class="nav-link p-0 text-body-secondary">Rooms</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <h5 style="text-align: center;">Company</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('privacypolicy') }}" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('refundpolicy') }}" class="nav-link p-0 text-body-secondary">Refund Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('faq') }}" class="nav-link p-0 text-body-secondary">F.A.Q</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <p class="text-center text-md-end"><a href="#">Back to top</a></p>
+    </div>
+  </div>
+  <div class="d-flex flex-column flex-sm-row justify-content-between py-2 my-2 border-top text-center mx-auto">
+  <p class="text-center text-md-center mx-auto">&copy; 2023 The Getaway Mansion, Inc. All rights reserved.</p>
+  </div>
+  </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" 
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" 
+    crossorigin="anonymous"></script>
+
+</body>
+</html>

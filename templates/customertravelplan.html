@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Getaway Mansion</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
+
+<style>
+/*     body { margin: 0; padding: 0; }*/
+/*     #map { position: absolute; top: 0; bottom: 0; width: 100%; }*/
+
+.overlay {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+.overlay3 {
+	position: absolute;
+	top: 10px;
+	left: 100px;
+}
+.overlay2 {
+	position: absolute;
+	top: 65px;
+	left: 10px;
+	font: 600 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	/*background-color: #3386c0;
+        color: #fff;*/
+        border-radius: 3px;
+}
+.overlay button {
+	font: 600 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	background-color: #3386c0;
+	color: #fff;
+	display: inline-block;
+	margin: 0;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	border-radius: 3px;
+}
+.overlay button:hover {
+	background-color: #4ea0da;
+}
+p, label {
+	color: black;
+}
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.button {
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <!--NAVBAR-->
+    <nav>
+        <div class="logo">
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" width="70px" height="auto;"></a>
+        </div>
+        <ul>
+        <li><p>Welcome</p></li>
+        <li><a href="{{ url_for('logout') }}"><button class="bn1">Logout</button></a></li>
+        </ul>
+        <div class="menu">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    </nav>
+    
+    <!--VIEW TRAVEL PLAN options-->
+    <div class="b-example-divider">&nbsp;</div>
+    <div class="container">
+    <h1 class="pb-2 border-bottom">MY TRAVEL PLANS</h1>
+    </div>
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9"> 
+      
+      <!-- <div id="map"></div> -->
+      
+      <div id='map' style="height:860px"></div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+      <form action="/" method="POST">
+        <p>
+          <label for="textprompt">Tell OpenAI to plan your trip:</label>
+        </p>
+        <textarea class="form-control" id="textprompt" name="textprompt" rows="4" cols="50">Plan a day trip in Kochi, where I will be able to visit the city's key historical sites and also recommend me highly rated indian food near these historical landmarks.</textarea>
+        <br>
+        <button type="submit" name="textp" value="yes" class="btn btn-success">Submit</button>
+        &nbsp;&nbsp; <a class="btn btn-primary" id="replay" role="button">Replay</a> <br>
+        <br>
+        Response: <br>
+        {{out | safe}}
+      </form>
+    </div>
+  </div>
+</div>
+
+    <!--FOOTER SECTION-->
+    <div class="b-example-divider">&nbsp;</div>
+    <div class="container-fluid">
+    <footer class="py-5" style(="background-color: #FFF7F5;")>
+    <div class="row">
+    <div class="col-6 col-md-3 mb-3">
+    <h5 style="text-align: center;">The Getaway Mansion</h5>
+    <p style="text-align: center;">Experience the epitome of luxury at Getaway Mansion, where every moment is a masterpiece, and every stay is a treasure</p>
+    </div>
+
+    <div class="col-6 col-md-2 mb-0 text-end">
+    <h5 style="text-align: end;">Quick Links</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('index') }}" class="nav-link p-0 text-body-secondary">Home</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('explore') }}" class="nav-link p-0 text-body-secondary">Explore</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('rooms') }}" class="nav-link p-0 text-body-secondary">Rooms</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <h5 style="text-align: center;">Company</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('privacypolicy') }}" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('refundpolicy') }}" class="nav-link p-0 text-body-secondary">Refund Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('faq') }}" class="nav-link p-0 text-body-secondary">F.A.Q</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <p class="text-center text-md-end"><a href="#">Back to top</a></p>
+    </div>
+    </div>
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-2 my-2 border-top text-center mx-auto">
+    <p class="text-center text-md-center mx-auto">&copy; 2023 The Getaway Mansion, Inc. All rights reserved.</p>
+    </div>
+    </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+<script>
+    // Put down your mapbox token here!
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWFkYXJzaDIzMTAiLCJhIjoiY2xxdG96eGt6NHY5cjJqbWV5YXBobHYxaCJ9.UILKiLYgqoS6QucvTht3VA';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        //style: 'mapbox://styles/ethanpng/ckk4sv3ig5pms17nyiqui4ttw',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        //style: 'mapbox://styles/ethanpng/ckmb86x7jh19y17ryixtpuy7f',
+        center: {{midpt}},
+        zoom: 11,
+        //pitch:60,  //added
+        //bearing:-120  //added
+    });
+
+    var c = {{df2}};
+
+    for(var i = 0; i < c.length; i++){
+     const marker = new mapboxgl.Marker({})
+       .setLngLat([c[i][0], c[i][1]])
+       .addTo(map);
+   }
+
+    // A simple line from origin to destination.
+    var route = {
+        'type': 'FeatureCollection',
+        'features': [
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'LineString',
+                'coordinates': {{df2}}          
+                  }
+              }
+              ]
+          };
+
+   
+    var point = {
+        'type': 'FeatureCollection',
+        'features': [
+        {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+                'type': 'Point',
+                'coordinates': {{origin}}
+            }
+        }
+        ]
+    };
+    // Calculate the distance in kilometers between route start/end point.
+    var lineDistance = turf.length(route.features[0]);
+    var arc = [];
+    // Number of steps to use in the arc and animation, more steps means
+    // a smoother arc and animation, but too many steps will result in a
+    // low frame rate
+    var steps = 500; //500 default
+
+    // Draw an arc between the `origin` & `destination` of the two points
+    for (var i = 0; i < lineDistance; i += lineDistance / steps) {
+        var segment = turf.along(route.features[0], i);
+        arc.push(segment.geometry.coordinates);
+    }
+
+    // Update the route with calculated arc coordinates
+    route.features[0].geometry.coordinates = arc;
+
+    // Used to increment the value of the point measurement against the route.
+    var counter = 0;
+
+    map.on('load', function () {
+        // Add a source and layer displaying a point which will be animated in a circle.
+        map.addSource('route', {
+            'type': 'geojson',
+            'data': route
+        });
+
+        map.addSource('point', {
+            'type': 'geojson',
+            'data': point
+        });
+
+        map.addLayer({
+            'id': 'route',
+            'source': 'route',
+            'type': 'line',
+            'paint': {
+                'line-width': 3,
+                'line-color': '#007cbf'
+            }
+        });
+
+        map.addLayer({
+            'id': 'point',
+            'source': 'point',
+            'type': 'symbol',
+            'layout': {
+                'icon-image': 'car-15',
+                'icon-rotate': ['get', 'bearing'],
+                'icon-rotation-alignment': 'map',
+                'icon-allow-overlap': true,
+                'icon-ignore-placement': true
+            }
+        });
+    
+        function animate() {
+            var start =
+            route.features[0].geometry.coordinates[
+            counter >= steps ? counter - 1 : counter
+            ];
+            var end =
+            route.features[0].geometry.coordinates[
+            counter >= steps ? counter : counter + 1
+            ];
+            if (!start || !end) return;
+
+            // Update point geometry to a new position based on counter denoting
+            // the index to access the arc
+            point.features[0].geometry.coordinates =
+            route.features[0].geometry.coordinates[counter];
+
+            // Calculate the bearing to ensure the icon is rotated to match the route arc
+            // The bearing is calculated between the current point and the next point, except
+            // at the end of the arc, which uses the previous point and the current point
+            point.features[0].properties.bearing = turf.bearing(
+                turf.point(start),
+                turf.point(end)
+                );
+
+            // Update the source with this new data
+            map.getSource('point').setData(point);
+
+            // Request the next frame of animation as long as the end has not been reached
+            if (counter < steps) {
+                requestAnimationFrame(animate);
+            }
+
+            counter = counter + 1;
+        }
+
+        document
+        .getElementById('replay')
+        .addEventListener('click', function () {
+                // Set the coordinates of the original point back to origin
+                point.features[0].geometry.coordinates = origin;
+
+                // Update the source layer
+                map.getSource('point').setData(point);
+
+                // Reset the counter
+                counter = 0;
+
+                // Restart the animation
+                animate(counter);
+            });
+
+        // Start the animation
+        animate(counter);
+    });
+
+</script>
+
+</body>
+</html>

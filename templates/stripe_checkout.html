@@ -1,0 +1,27 @@
+<!-- templates/stripe_checkout.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <noscript>
+        <p>JavaScript is required to use Stripe Checkout.</p>
+    </noscript>
+    <script>
+        var stripe = Stripe('pk_test_51ORp81SDzDKloi3cuz6cg9eJRu0JFYjraRsmgxh3rWJcMcrN7YlvsS0hzbLrd5U2x7SyjhjQBrXjBXrjoeVGfNeq00qVbq3pij');
+        stripe.redirectToCheckout({
+            sessionId: '{{ session_id }}'
+        }).then(function (result) {
+            // If `redirectToCheckout` fails, show an error to your customer.
+            if (result.error) {
+                alert(result.error.message);
+            }
+        });
+    </script>
+</body>
+</html>

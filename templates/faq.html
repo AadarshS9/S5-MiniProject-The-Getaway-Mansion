@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getaway Mansion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <nav>
+    <div class="logo">
+    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" width="70px" height="auto;"></a>
+    </div>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('explore') }}">Explore</a></li>
+        <li><a href="{{ url_for('rooms') }}">Rooms</a></li>
+        <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+        <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+        <li class="nav-item mb-2"><a href="{{ url_for('signup') }}" class="bn1">Sign Up</a></li>
+        <li class="nav-item mb-2"><a href="{{ url_for('login') }}" class="bn1">Login</a></li>
+    </ul>
+    <div class="menu">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+    </div>
+    </nav>
+
+    <!---FAQ SECTION-->
+    <div class="b-example-divider">&nbsp;</div>
+    <div class="container">
+    <h2 class="pb-2 border-bottom">F.A.Q</h2>
+    <p class="subtext" style="text-align: center; font-size: 1.5em; font-weight: bold;">Kindly read the following very carefully!</p><br />
+    <p class="subtext" style="text-align: center; font-size: 1.5em; font-weight: bold;">Booking & Cancellations: </p><br />
+    <p class="text-body-secondary" style="text-align: justify;">What types of rooms do you offer?
+        We offer a variety of luxurious suites and villas, each with unique amenities and stunning views. Please visit our website for detailed descriptions and photos.<br><br>
+        What is your cancellation policy?
+        Our cancellation policy varies depending on the rate you booked. You can find the specific details on your booking confirmation email. <br><br>
+        Can I modify my reservation?
+        Yes, please contact our reservations team and we'll be happy to assist you. <br><br>
+        Do you offer group discounts?
+        Absolutely! Contact our reservations team for information on group rates and packages.</p>
+    <br>
+    <p class="subtext" style="text-align: center; font-size: 1.5em; font-weight: bold;">Amenities & Services: </p><br />
+    <p class="text-body-secondary" style="text-align: justify;">What amenities are included in my stay?
+        All our guests enjoy access to our infinity pool, spa, fitness center, private beach, and a variety of restaurants and bars.
+        Certain room types may offer additional amenities like private pools or butler service.<br><br>
+        Do you offer room service?
+        Yes, we offer 24-hour room service for your convenience.<br><br>
+        Do you have childcare services?
+        Yes, we offer supervised childcare activities and babysitting services upon request.<br><br>
+        Do you have accessible rooms?
+        We are committed to providing accessibility for all guests. Please inquire about our accessible rooms at the time of booking.</p>
+    <br>
+    <p class="subtext" style="text-align: center; font-size: 1.5em; font-weight: bold;">General Information: </p><br />
+    <p class="text-body-secondary" style="text-align: justify;">Do you allow pets?
+        Yes, we are a pet-friendly hotel.<br><br>
+        What is your smoking policy?
+        Smoking is strictly prohibited inside the hotel, but designated outdoor smoking areas are available..</p>
+    <br>
+    </div>
+
+
+    <!--FOOTER SECTION-->
+    <div class="b-example-divider">&nbsp;</div>
+    <div class="container-fluid">
+    <footer class="py-5" style(="background-color: #FFF7F5;")>
+    <div class="row">
+    <div class="col-6 col-md-3 mb-3">
+    <h5 style="text-align: center;">The Getaway Mansion</h5>
+    <p style="text-align: center;">Experience the epitome of luxury at Getaway Mansion, where every moment is a masterpiece, and every stay is a treasure</p>
+    </div>
+
+    <div class="col-6 col-md-2 mb-0 text-end">
+    <h5 style="text-align: end;">Quick Links</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('index') }}" class="nav-link p-0 text-body-secondary">Home</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('explore') }}" class="nav-link p-0 text-body-secondary">Explore</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('rooms') }}" class="nav-link p-0 text-body-secondary">Rooms</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <h5 style="text-align: center;">Company</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('privacypolicy') }}" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('refundpolicy') }}" class="nav-link p-0 text-body-secondary">Refund Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('faq') }}" class="nav-link p-0 text-body-secondary">F.A.Q</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <p class="text-center text-md-end"><a href="#">Back to top</a></p>
+    </div>
+    </div>
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-2 my-2 border-top text-center mx-auto">
+    <p class="text-center text-md-center mx-auto">&copy; 2023 The Getaway Mansion, Inc. All rights reserved.</p>
+    </div>
+    </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+</body>
+</html>

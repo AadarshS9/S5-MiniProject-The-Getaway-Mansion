@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getaway Mansion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+  <!--NAVBAR-->
+  <nav>
+  <div class="logo">
+    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" width="70px" height="auto;"></a>
+  </div>
+  <ul>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('explore') }}">Explore</a></li>
+    <li><a href="{{ url_for('rooms') }}">Rooms</a></li>
+    <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+    <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('signup') }}" class="bn1">Sign Up</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('login') }}" class="bn1">Login</a></li>
+  </ul>
+  <div class="menu">
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+  </div>
+  </nav>
+
+  <div class="b-example-divider">&nbsp;</div>
+  <div class="container">
+    <h2 class="pb-2 border-bottom">Enquiry Results</h2>
+    <p class="subtext" style="text-align: center; font-size: 1.5em;">Check-in: {{ checkin_date }}, Checkout: {{ checkout_date }}</p><br />
+
+    <ul>
+      {% for type, rooms in grouped_rooms.items() %}
+        <li>Rooms Remaining for {{ type }} : {{ rooms|length }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="b-example-divider">&nbsp;</div>
+
+<!-- ROOMS -->
+  <section id="services" class="services section-bg">
+  <div class="container">
+    <h2 class="pb-2 border-bottom">Rooms</h2>
+    <p class="subtext" style="text-align: center; font-size: 1.5em;">Know more details about our offerings</p><br />
+    <div class="row row-cols-1 row-cols-sm- row-cols-md-3 g-5">
+      <!-- Room 1 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ url_for('static', filename='images/room1.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+          <div class="card-body">
+            <h2 style="text-align: center;">Penthouse</h2>
+            <p class="card-text" style="text-align: center;">₹190</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group" style="right: 100;">
+                <a href="{{ url_for('room1') }}"><button class="bn1">Know More</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room 2 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ url_for('static', filename='images/room2.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+          <div class="card-body">
+            <h2 style="text-align: center;">Presidential Suite</h2>
+            <p class="card-text" style="text-align: center;">₹160</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group" style="right: 100;">
+                <a href="{{ url_for('room2') }}"><button class="bn1">Know More</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room 3 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ url_for('static', filename='images/room3.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+          <div class="card-body">
+            <h2 style="text-align: center;">Executive Suite</h2>
+            <p class="card-text" style="text-align: center;">₹130</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group" style="right: 100;">
+                <a href="{{ url_for('room3') }}"><button class="bn1">Know More</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room 4 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ url_for('static', filename='images/room4.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+          <div class="card-body">
+            <h2 style="text-align: center;">Studio</h2>
+            <p class="card-text" style="text-align: center;">₹90</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group" style="right: 100;">
+                <a href="{{ url_for('room4') }}"><button class="bn1">Know More</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room 5 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ url_for('static', filename='images/room5.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+          <div class="card-body">
+            <h2 style="text-align: center;">Deluxe Room</h2>
+            <p class="card-text" style="text-align: center;">₹60</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group" style="right: 100;">
+                <a href="{{ url_for('room5') }}"><button class="bn1">Know More</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room 6 -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{ url_for('static', filename='images/room6.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+          <div class="card-body">
+            <h2 style="text-align: center;">Standard Room</h2>
+            <p class="card-text" style="text-align: center;">₹30</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group" style="right: 100;">
+                <a href="{{ url_for('room6') }}"><button class="bn1">Know More</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!--FOOTER SECTION-->
+  <div class="b-example-divider">&nbsp;</div>
+  <div class="container-fluid">
+  <footer class="py-5" style(="background-color: #FFF7F5;")>
+  <div class="row">
+    <div class="col-6 col-md-3 mb-3">
+    <h5 style="text-align: center;">The Getaway Mansion</h5>
+    <p style="text-align: center;">Experience the epitome of luxury at Getaway Mansion, where every moment is a masterpiece, and every stay is a treasure</p>
+    </div>
+
+    <div class="col-6 col-md-2 mb-0 text-end">
+    <h5 style="text-align: end;">Quick Links</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('index') }}" class="nav-link p-0 text-body-secondary">Home</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('explore') }}" class="nav-link p-0 text-body-secondary">Explore</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('rooms') }}" class="nav-link p-0 text-body-secondary">Rooms</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <h5 style="text-align: center;">Company</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('privacypolicy') }}" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('refundpolicy') }}" class="nav-link p-0 text-body-secondary">Refund Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('faq') }}" class="nav-link p-0 text-body-secondary">F.A.Q</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <p class="text-center text-md-end"><a href="#">Back to top</a></p>
+    </div>
+  </div>
+  <div class="d-flex flex-column flex-sm-row justify-content-between py-2 my-2 border-top text-center mx-auto">
+  <p class="text-center text-md-center mx-auto">&copy; 2023 The Getaway Mansion, Inc. All rights reserved.</p>
+  </div>
+  </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+</body>
+</html>

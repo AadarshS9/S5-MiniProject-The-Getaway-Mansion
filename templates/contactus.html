@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getaway Mansion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav>
+  <div class="logo">
+    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" width="70px" height="auto"></a>
+  </div>
+  <ul>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('explore') }}">Explore</a></li>
+    <li><a href="{{ url_for('rooms') }}">Rooms</a></li>
+    <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+    <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('signup') }}" class="bn1">Sign Up</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('login') }}" class="bn1">Login</a></li>
+  </ul>
+  <div class="menu">
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>   
+  </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <div class="hero" style="background-image: url('{{ url_for('static', filename='images/contact-bg.png') }}');">
+  <p><br><br><br><br><br><br><br>&nbsp;&nbsp;&nbsp;Contact Us</p>
+  </div>
+  &nbsp;
+
+  <!-- CONTACT SECTION -->
+  <section id="services" class="services section-bg">
+  <div class="container">
+  <section id="contact" class="contact">
+  <div class="container">
+  <div class="section-title">
+  <h2 class="pb-2 border-bottom">Contact Us</h2>
+  <p class="subtext">At your service</p><br>
+  </div>
+  <div class="row">
+  <div class="col-lg-5 d-flex align-items-stretch">
+  <div class="info">
+  <div class="address">
+  <i class="bi bi-geo-alt"></i>
+  <h4>Location:</h4>
+  <p>Crescent Rd - The Palm Jumeirah - Dubai - United Arab Emirates</p>
+  </div>
+
+  <div class="email">
+  <i class="bi bi-envelope"></i>
+  <h4>Email:</h4>
+  <p>atlantis@outlook.com</p>
+  </div>
+
+  <div class="phone">
+  <i class="bi bi-phone"></i>
+  <h4>Call:</h4>
+  <p>+91 9567 99 2310</p>
+  <div class="mapouter">
+  <div class="gmap_canvas">
+    <iframe width="419" height="290" id="gmap_canvas" src="https://maps.google.com/maps?q=atlantis+the+palm+dubai&t=&z=12&ie=UTF8&iwloc=&output=embed" frameborder="0" 
+      scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    <a href="https://www.tabclocktab.com/">clock tab</a>
+    <br>
+    <a href="https://www.clock-alarm.com/"></a>
+    <br>
+    <style>.mapouter{position: relative;text-align: right;height: 290px;width: 419px;}</style>
+    <a href="https://www.ongooglemaps.com">generate Google Maps</a>
+    <style>.gmap_canvas{overflow: hidden;background: none !important;height: 290px;width: 419px;}</style>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+  </div>
+  </div>
+  </div>
+  </section>
+  </div>
+  </section>
+
+  <!--FOOTER SECTION-->
+  <div class="b-example-divider">&nbsp;</div>
+  <div class="container-fluid">
+  <footer class="py-5" style(="background-color: #FFF7F5;")>
+  <div class="row">
+    <div class="col-6 col-md-3 mb-3">
+    <h5 style="text-align: center;">The Getaway Mansion</h5>
+    <p style="text-align: center;">Experience the epitome of luxury at Getaway Mansion, where every moment is a masterpiece, and every stay is a treasure</p>
+    </div>
+
+    <div class="col-6 col-md-2 mb-0 text-end">
+    <h5 style="text-align: end;">Quick Links</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('index') }}" class="nav-link p-0 text-body-secondary">Home</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('explore') }}" class="nav-link p-0 text-body-secondary">Explore</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('rooms') }}" class="nav-link p-0 text-body-secondary">Rooms</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <h5 style="text-align: center;">Company</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('privacypolicy') }}" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('refundpolicy') }}" class="nav-link p-0 text-body-secondary">Refund Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('faq') }}" class="nav-link p-0 text-body-secondary">F.A.Q</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <p class="text-center text-md-end"><a href="#">Back to top</a></p>
+    </div>
+  </div>
+  <div class="d-flex flex-column flex-sm-row justify-content-between py-2 my-2 border-top text-center mx-auto">
+  <p class="text-center text-md-center mx-auto">&copy; 2023 The Getaway Mansion, Inc. All rights reserved.</p>
+  </div>
+  </div>
+  </footer>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getaway Mansion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+  <style>
+  body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .button {
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  </style>
+</head>
+
+<body>
+  <!--NAVBAR-->
+  <nav>
+  <div class="logo">
+      <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" width="70px" height="auto;"></a>
+  </div>
+  <ul>
+    <li><p>Welcome, {{ user_email }}</p></li>
+    <li><a href="{{ url_for('logout') }}"><button class="bn1">Logout</button></a></li>
+  </ul>
+  <div class="menu">
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+  </div>
+  </nav>
+
+  <!--ADMIN options--> 
+  <div class="b-example-divider">&nbsp;</div>
+    <div class="container">
+      <h2 class="pb-2 border-bottom">Admin Dashbaord</h2>
+      <div class="row row-cols-1 row-cols-sm- row-cols-md-4 g-4">
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ url_for('static', filename='images/admindb1.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group" style="right: 100;">
+                  <a href="{{ url_for('admin_view_rooms') }}"><button class="bn1">View Rooms</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ url_for('static', filename='images/admindb2.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group" style="right: 100;">
+                  <a href="{{ url_for('admin_view_bookings') }}"><button class="bn1" >Bookings</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ url_for('static', filename='images/admindb3.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group" style="right: 100;">
+                  <a href="{{ url_for('admin_view_payments') }}"><button class="bn1">Payments</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ url_for('static', filename='images/admindb4.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group" style="right: 100;">
+                  <a href="{{ url_for('admin_view_room_allocations') }}"><button class="bn1">Room Allocations</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ url_for('static', filename='images/admindb5.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group" style="right: 100;">
+                  <a href="{{ url_for('admin_view_customer') }}"><button class="bn1">Customers</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ url_for('static', filename='images/admindb6.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group" style="right: 100;">
+                  <a href="{{ url_for('admin_view_registered_users') }}"><button class="bn1">Registered Users</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ url_for('static', filename='images/admindb7.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group" style="right: 100;">
+                  <a href="{{ url_for('admin_view_travel_plans') }}"><button class="bn1">Travel Plans</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ url_for('static', filename='images/admindb8.png') }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group" style="right: 100;">
+                  <a href="{{ url_for('admin_view_cancellation') }}"><button class="bn1">Cancellations</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!--FOOTER SECTION-->
+  <div class="b-example-divider">&nbsp;</div>
+  <div class="container-fluid">
+  <footer class="py-5" style(="background-color: #FFF7F5;")>
+  <div class="row">
+    <div class="col-6 col-md-3 mb-3">
+    <h5 style="text-align: center;">The Getaway Mansion</h5>
+    <p style="text-align: center;">Experience the epitome of luxury at Getaway Mansion, where every moment is a masterpiece, and every stay is a treasure</p>
+    </div>
+
+    <div class="col-6 col-md-2 mb-0 text-end">
+    <h5 style="text-align: end;">Quick Links</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('index') }}" class="nav-link p-0 text-body-secondary">Home</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('explore') }}" class="nav-link p-0 text-body-secondary">Explore</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('rooms') }}" class="nav-link p-0 text-body-secondary">Rooms</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <h5 style="text-align: center;">Company</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('privacypolicy') }}" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('refundpolicy') }}" class="nav-link p-0 text-body-secondary">Refund Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('faq') }}" class="nav-link p-0 text-body-secondary">F.A.Q</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <p class="text-center text-md-end"><a href="#">Back to top</a></p>
+    </div>
+  </div>
+  <div class="d-flex flex-column flex-sm-row justify-content-between py-2 my-2 border-top text-center mx-auto">
+  <p class="text-center text-md-center mx-auto">&copy; 2023 The Getaway Mansion, Inc. All rights reserved.</p>
+  </div>
+  </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+</body>
+</html>

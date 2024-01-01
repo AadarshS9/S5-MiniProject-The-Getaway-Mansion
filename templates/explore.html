@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getaway Mansion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav>
+  <div class="logo">
+    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" width="70px" height="auto"></a>
+  </div>
+  <ul>
+    <li><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('explore') }}">Explore</a></li>
+    <li><a href="{{ url_for('rooms') }}">Rooms</a></li>
+    <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+    <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('signup') }}" class="bn1">Sign Up</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('login') }}" class="bn1">Login</a></li>
+  </ul>
+  <div class="menu">
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+    <div class="menu-line"></div>
+  </div>
+  </nav>
+
+  <!---CAROUSEL PICTURES-->
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+  <div class="carousel-item active">
+  <img src="{{ url_for('static', filename='images/explore_11.gif') }}" object-fit="cover" width="2000px" height="850px" class="d-block w-100" role="img" aria-hidden="true" 
+    preserveAspectRatio="xMidYMid slice" focusable="false">
+  <div class="container">
+  <div class="carousel-caption text-start">
+  <h1>Welcome to Atlantis</h1>
+  </div>
+  </div>
+  </div>
+  <div class="carousel-item">
+  <img src="{{ url_for('static', filename='images/explore_8.jpg') }}" object-fit="cover" width="2000px" height="850px" class="d-block w-100" role="img" aria-hidden="true" 
+    preserveAspectRatio="xMidYMid slice" focusable="false">
+  <div class="container">
+  <div class="carousel-caption">
+  <h1>Lounge in ecstasy</h1>
+  </div>
+  </div>
+  </div>
+  <div class="carousel-item">
+  <img src="{{ url_for('static', filename='images/explore_9.jpg') }}" object-fit="cover" width="2000px" height="850px" class="d-block w-100" role="img" aria-hidden="true" 
+    preserveAspectRatio="xMidYMid slice" focusable="false">
+  <div class="container">
+  <div class="carousel-caption text-end">
+  <h1>Fall in love with the lights</h1>
+  </div>
+  </div>
+  </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
+  </button>
+  </div>
+&nbsp;
+
+  <!----FEATURES-->
+  <div class="container marketing">
+  <hr class="featurette-divider">
+  <div class="row featurette">
+  <div class="col-md-7">
+  <h2 class="featurette-heading fw-normal lh-1" style="text-align: center;">Luxurious Rooms</h2>
+  <p class="lead" style="text-align: justify;">Our luxurious rooms at Getaway Mansion redefine the concept of opulence. Each room is a sanctuary of elegance, meticulously 
+      designed to envelop you in comfort and style. From plush furnishings to breathtaking views, every detail is crafted to create an unforgettable experience. Welcome to your 
+      haven of serenity and indulgence.</p>
+  </div>
+  <div class="col-md-5">
+  <img src="{{ url_for('static', filename='images/explore_1.png') }}" width="500" height="500" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" 
+    role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+  </div>
+  </div>
+
+  <hr class="featurette-divider">
+  <div class="row featurette">
+  <div class="col-md-7 order-md-2">
+  <h2 class="featurette-heading fw-normal lh-1" style="text-align: center;">Gym center</h2>
+  <p class="lead" style="text-align: justify;">At Getaway Mansion, our gym center is your gateway to wellness. Discover a world of modern fitness equipment and a serene environment
+    designed to invigorate your body and mind. Embrace a healthier, more energetic you during your stay.</p>
+  </div>
+  <div class="col-md-5 order-md-1">
+  <img src="{{ url_for('static', filename='images/explore_2.png') }}" width="500" height="500" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" 
+    role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+  </div>
+  </div>
+
+  <hr class="featurette-divider">
+  <div class="row featurette">
+  <div class="col-md-7">
+  <h2 class="featurette-heading fw-normal lh-1" style="text-align: center;">Restaurant</h2>
+  <p class="lead" style="text-align: justify;">Savor the art of culinary excellence at Getaway Mansion's dining restaurant. Immerse yourself in a symphony of flavors created by 
+      our expert chefs, amidst an ambiance that exudes elegance and sophistication. Every meal is a journey of taste, where exquisite cuisine meets impeccable service.</p>
+  </div>
+  <div class="col-md-5">
+  <img src="{{ url_for('static', filename='images/explore_3.png') }}" width="500" height="500" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" 
+    role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+  </div>
+  </div>
+
+  <hr class="featurette-divider">
+  <div class="row featurette">
+  <div class="col-md-7 order-md-2">
+  <h2 class="featurette-heading fw-normal lh-1" style="text-align: center;">Swimming Pools and Waterparks</h2>
+  <p class="lead" style="text-align: justify;">Make a splash in the ultimate aquatic playground at Getaway Mansion. Our waterpark is a thrilling haven of water slides, lazy rivers, 
+      and family fun, all set against the backdrop of our luxurious retreat. It's where unforgettable memories are made under the sun and by the pool.</p>
+  </div>
+  <div class="col-md-5 order-md-1">
+  <img src="{{ url_for('static', filename='images/explore_4.png') }}" width="500" height="500" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" 
+    role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+  </div>
+  </div>
+
+  <hr class="featurette-divider">
+  <div class="row featurette">
+  <div class="col-md-7">
+  <h2 class="featurette-heading fw-normal lh-1" style="text-align: center;">Aquariams</h2>
+  <p class="lead" style="text-align: justify;">Explore a mesmerizing underwater world at Getaway Mansion's breathtaking aquariums. Immerse yourself in the beauty of marine life as 
+    you wander through captivating displays that bring the ocean's wonders to your fingertips. A truly unique and enchanting experience awaits within our hotel's walls.</p>
+  </div>
+  <div class="col-md-5">
+  <img src="{{ url_for('static', filename='images/explore_5.png') }}" width="500" height="500" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" 
+    role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+  </div>
+  </div>
+
+  <hr class="featurette-divider">
+  <div class="row featurette">
+  <div class="col-md-7 order-md-2">
+  <h2 class="featurette-heading fw-normal lh-1" style="text-align: center;">Wellness Spas</h2>
+  <p class="lead" style="text-align: justify;">Discover pure bliss and rejuvenation at Getaway Mansion's wellness spas. Step into a world of relaxation and self-care, where expert 
+    therapists pamper you with indulgent treatments and therapies. Experience the perfect blend of serenity and luxury, ensuring that your stay is both restful and revitalizing.</p>
+  </div>
+  <div class="col-md-5 order-md-1">
+  <img src="{{ url_for('static', filename='images/explore_6.png') }}" width="500" height="500" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" 
+    role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+  </div>
+  </div>
+  <hr class="featurette-divider">
+  </div>
+
+  <!--FOOTER SECTION-->
+  <div class="b-example-divider">&nbsp;</div>
+  <div class="container-fluid">
+  <footer class="py-5" style(="background-color: #FFF7F5;")>
+  <div class="row">
+    <div class="col-6 col-md-3 mb-3">
+    <h5 style="text-align: center;">The Getaway Mansion</h5>
+    <p style="text-align: center;">Experience the epitome of luxury at Getaway Mansion, where every moment is a masterpiece, and every stay is a treasure</p>
+    </div>
+
+    <div class="col-6 col-md-2 mb-0 text-end">
+    <h5 style="text-align: end;">Quick Links</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('index') }}" class="nav-link p-0 text-body-secondary">Home</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('explore') }}" class="nav-link p-0 text-body-secondary">Explore</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('rooms') }}" class="nav-link p-0 text-body-secondary">Rooms</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <h5 style="text-align: center;">Company</h5>
+    <ul class="nav flex-column">
+    <li class="nav-item mb-2"><a href="{{ url_for('privacypolicy') }}" class="nav-link p-0 text-body-secondary">Privacy Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('refundpolicy') }}" class="nav-link p-0 text-body-secondary">Refund Policy</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('faq') }}" class="nav-link p-0 text-body-secondary">F.A.Q</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('aboutus') }}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+    <li class="nav-item mb-2"><a href="{{ url_for('contactus') }}" class="nav-link p-0 text-body-secondary">Contact Us</a></li>
+    </ul>
+    </div>
+
+    <div class="col-12 col-md mb text-center">
+    <p class="text-center text-md-end"><a href="#">Back to top</a></p>
+    </div>
+  </div>
+  <div class="d-flex flex-column flex-sm-row justify-content-between py-2 my-2 border-top text-center mx-auto">
+  <p class="text-center text-md-center mx-auto">&copy; 2023 The Getaway Mansion, Inc. All rights reserved.</p>
+  </div>
+  </div>
+  </footer>
+
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+</body>
+</html>

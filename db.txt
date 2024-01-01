@@ -1,0 +1,56 @@
+CREATE DATABASE IF NOT EXISTS getawaymansion;
+
+USE getawaymansion;
+
+CREATE TABLE IF NOT EXISTS people (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userid VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    role ENUM('admin', 'user') NOT NULL,
+    status ENUM('active', 'inactive') NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS rooms (
+    roomsid INT AUTO_INCREMENT PRIMARY KEY,
+    type VARCHAR(50) NOT NULL,
+    rate INT NOT NULL,
+    adultlimit INT NOT NULL,
+    childrenlimit INT NOT NULL
+);
+
+INSERT INTO rooms (type, rate, adultlimit, childrenlimit) VALUES
+	('Penthouse', 190, 4, 2),
+	('Presidential Suite', 160, 4, 2),
+	('Executive Suite', 130, 4, 2),
+	('Studio', 60, 3, 2),
+	('Deluxe Room', 60, 3, 2),
+	('Standard Room', 30, 3, 2);
+
+
+CREATE TABLE IF NOT EXISTS customer (
+    custid INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(10) NOT NULL,
+    firstname VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    phoneno VARCHAR(20) NOT NULL,
+    country VARCHAR(50) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    ssn BIGINT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS booking (
+    bookingid INT AUTO_INCREMENT PRIMARY KEY,
+    checkindate DATETIME NOT NULL,
+    checkoutdate DATETIME NOT NULL,
+    status ENUM('confirmed', 'pending', 'cancelled') NOT NULL,
+    duration INT NOT NULL,
+    roomsid INT,
+    custid INT,
+    FOREIGN KEY (roomsid) REFERENCES rooms(roomsid),
+    FOREIGN KEY (custid) REFERENCES customer(custid)
+);
+
+
+
+
