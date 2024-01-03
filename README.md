@@ -6,6 +6,12 @@ This repository houses the code for "The Getaway Mansion," a website designed to
 
 This represents our team's mini-project for the fifth semester of the Computer Science and Business Systems (CSBS) program.
 
+
+
+https://github.com/AadarshS9/S5-MiniProject-The-Getaway-Mansion/assets/94780937/77d640cb-b38a-431f-bfe4-d9e8f8fba3a5
+
+
+
 # <p align="center"> Key Features: </p>
 
 - Seamless Hotel Reservations:
